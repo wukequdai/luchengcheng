@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+<style type="text/css">
+	#content{width:400px;height:400px;border:10px solid
+	red;position:relative;margin:40px auto 0;}
+	#content a{width:40px;height:40px;background:#000;border:5px solid#fff;position:absolute;top:175px;
+	text-align:center;line-height:40px;font-weight:bold;
+	text-decoration:none;color:#fff;font-size:30px;opacity:0.4;}
+	#content a:hover{
+		opacity:0.9;
+	}
+	#prev{left:10px;}
+	#next{right:10px;}
+	#text{position:absolute;top:0;left:0;width:400px;height:30px;line-height:30px;text-align:center;color:#FFF;background:#000;opacity:0.6;margin:0;}
+	#span1{position:absolute;bottom:0;left:0;width:400px;height:30px;line-height:30px;text-align:center;color:#FFF;background:#000;opacity:0.6;margin:0;}
+	#img1{width:400px;height:400px;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var arr1=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+		var arr2=["111","222","333","444"];
+		var num=0;
+		function prcture(){
+			span1.innerHTML=num+1+"/"+arr1.length;
+			img1.src=arr1[num];
+			text.innerHTML=arr2[num];
+		}
+		prcture();
+		prev.onclick=function(){
+			num--;
+			if(num==-1){
+				num=arr1.length-1;
+			}
+			prcture();
+		}
+		next.onclick=function(){
+			num++;
+			if(num==arr1.length){
+				num=0;
+			}
+			prcture();
+		}
+	}
+</script>
+</head>
+<body>
+<div id="content">
+	<a id="prev" href="#"><</a>
+	<a id="next" href="#">></a>
+	<p id="text">这是第一张图片</p>
+	<span id="span1">1/4</span>
+	<img id="img1" src="img/3.jpg" alt="" />
+</div>
+</body>
+</html>
