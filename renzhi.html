@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+	 var hiredate=new Date("2012/6/30");//入职时间
+	 //复制hiredate为enddate
+	 var enddate=new Date(hiredate);//到期
+	 //将enddate+3年
+	 enddate.setFullYear(enddate.getFullYear()+3);
+	 //复制enddate为renewdate
+	 var renewdate=new Date(enddate);//续签
+	 //将renewdate-1个月
+	 renewdate.setMonth(renewdate.getMonth()-1);
+	 //如果renewdate是周六就再-1天
+	 if(renewdate.getDay()==6)
+		renewdate.setDate(renewdate.getDate()-1);
+		//否则，如果renewdate是周日就再-2天
+	 if(renewdate.getDay()==0)
+		renewdate.setDate(renwedate.getDate()-2);
+		//复制renewdate为alertdate
+		var alertdate=new Date(renewdate);
+		//将alertdate-7天
+		alertdate.setDate(alertdate.getDate()-7);
+		console.log(hiredate.toLocaleDateString());
+		console.log(enddate.toLocaleDateString());
+		console.log(renewdate.toLocaleDateString());
+		console.log(alertdate.toLocaleDateString());
+	</script>
+</body>
+</html>
