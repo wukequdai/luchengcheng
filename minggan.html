@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+		var str="no zuo no die no can no bibi";
+		var i=-1;
+		while(true){
+			//先从i+1处开始找。找no位置
+			i=str.indexOf("no",i+1);
+			if(i!=-1)//判断。找到就输出文字
+			document.write("在位置"+i+"发现敏感词"+"<br>");
+			else//否则
+			break;//退出
+		}
+		var msg="那天，我去了她家。我说：我草。你家我草好大";
+		//        0 1 2 3 4 5 6 7 8 9 0 1 2
+		var i=msg.search(/[我卧][草操艹]/ig);
+		if(i!=-1)
+		//var kwords=str.match(msg);
+		document.write("在位置"+i+"发现敏感词");
+		else
+			document.write("clear!")
+	</script>	
+</body>
+</html>

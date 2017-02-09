@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+		var code="A3dE";
+		while(true){
+			//请用户反复输入验证码
+			var input=prompt("请输入验证码："+code);
+			//如果输入错误，就提示"验证码错误，请重试"
+			if(input.toLowerCase()!=code.toLowerCase()){
+				alert("验证码错误，请重试");
+			}else{//如果输入正确
+				break;//就退出循环
+			}
+		}
+		document.write("验证通过");
+	</script>
+</body>
+</html>
