@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+		/*var input=parseFloat(prompt("请输入一个数字"));
+		var d=prompt("输入小数点个数");
+		try
+		{
+			var r=input.toFixed(d);
+			console.log(r);
+		}
+		catch (err)
+		{alert("出错了！请联系管理员！")
+		console.log(String(err));
+		}finally{
+		console.log("程序继续执行....")
+		}
+		if(d<=20&&d>=0){
+			var r=input.toFixed(d);
+			console.log(r);
+		}else{alert("出错哦了！联系管理员")}*/
+		function round(num,d){
+			if(!isNaN(num)&&!isNaN(d)){
+				num=Math.round(num*Math.pow(10,d));
+				return num/Math.pow(10,d)
+			}else{throw new Error("孙子，参数必须是数字！")}
+		}
+		var input=prompt("输入数字");
+		var d=prompt("输入小数位");
+		if(!isNaN(input)&&!isNaN(d)){
+			var r=round(input,d);
+			console.log(r)
+		}else{
+			alert("必须是数字")
+		}
+		console.log("程序继续执行")
+	</script>
+</body>
+</html>
