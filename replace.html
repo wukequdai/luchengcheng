@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<script type="text/javascript">
+	var str="   zhang   dong   ";
+	function rmf(str){//删除开头的空字符
+		return str.replace(/^\s+/,"");
+	}
+	function rml(str){//删除结尾的空字符
+		return str.replace(/\s+$/,"");
+	}
+	function rmlf(str){//删除开头和结尾的空字符
+		return str.replace(/\s+$|^\s+/g,"");
+	}
+	console.log(rmf(str));
+	console.log(rml(str));
+	console.log(rmlf(str));
+	var birth="20170209";
+	birth=birth.slice(0,4)+"年"+birth.slice(4,6)+"月"+birth.slice(6)+"日";
+	console.log(birth);
+	birth.replace(
+		/(\d{4})(\d{2})(\d{2})/,"$1年$2月$3日"
+	);
+	console.log(birth);
+	var email="1434482210@qq.com";
+	var arr=email.split("@");
+	var name=arr[0];
+	var yuming=arr[1];
+	console.log(
+		"用户名"+name+"/n",
+		"域名"+yuming
+	)
+	var pid="321323199510173911";
+	var arr=pid.split("");
+	console.log(String(arr));
+</script>
+</body>
+</html>
