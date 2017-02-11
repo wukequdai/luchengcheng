@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+		/*var lilei={
+			name:"Li lei",
+			age:11,
+			birthday:12.12,
+			intr(){//intr:function(){
+				console.log("I'm"+this.name+",I'm"+this.age);
+			}
+		}
+		console.log(lilei.name);//输出李磊的
+		lilei.age++;
+		console.log(lilei.age);
+		console.log(lilei);
+		lilei.intr();
+		lilei.age++;
+		lilei.intr();
+		console.log(lilei["name"])
+		function student(name,age){
+		 this.name=name,
+		 this.age=age,
+		 this.intr=function(){
+			console.log("I'm"+this.name+"I'm"+this.age);
+		 }
+		}
+		var lilei=new student("lilei",12);
+		var hanmeimei=new student("hanmeimei",13)
+		console.log(lilei);
+		console.dir(hanmeimei)*/
+		function student(name,age){
+			this.name=name,
+			this.age=age;
+		}
+		student.prototype.intr=function(){
+			console.log(
+				"I'm"+this.name+"，I'm "+this.age+"，I'm from "+this.classname
+			)
+		}
+		student.prototype.classname="初一二班";
+		var lilei=new student(" lilei","12");
+		var hanmeimei=new student(" hanmeimei","13");
+		console.log(lilei);
+		console.log(hanmeimei);
+		lilei.intr();
+		hanmeimei.intr();
+		student.prototype.classname="初二二班";
+		lilei.intr();
+		hanmeimei.intr();
+	</script>
+</body>
+</html>
