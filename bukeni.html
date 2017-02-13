@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+	//声明一个直接量对象
+	var emp1={id:210,name:"123",salary:10000};
+		//id属性只读，且禁止删除
+		//name属性不可修改
+
+		Object.defineProperties(emp1,{
+			id:{writable:false,confingurable:false},
+			name:{confingurable:false},
+			salary:{enumerable:false,confingurable:false}
+		});
+		for(var key in emp1){
+			console.log(key+"："+emp1[key]);
+		}
+		console.dir(emp1);
+		console.log(emp1.salary)
+	</script>
+</body>
+</html>
