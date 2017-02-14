@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			"use strict";//使用严格模式执行程序
+			var eric={
+				id:1001,//{value:  , writable: ,...}
+				name:"Eric",
+				sal:15000
+			};
+			console.dir(
+			  Object.getOwnPropertyDescriptor(eric,"id")
+			);
+		/*让id只读: 设置id的writable特性为false
+			console.log(eric.id);
+			Object.defineProperty(eric,"id",{
+				writable:false,
+				configurable:false
+			});
+
+			Object.defineProperty(eric,"id",{
+				writable:true,
+				configurable:true
+			});
+			eric.id=1002;
+			Object.defineProperty(eric,"id",{
+				writable:false
+			});
+			console.log(eric.id);
+		*/
+		/*让sal不可遍历
+			for(var key in eric){
+				console.log(key+":"+eric[key]);
+			}
+			Object.defineProperty(eric,"sal",{
+				enumerable:false
+			});
+			for(var key in eric){
+				console.log(key+":"+eric[key]);
+			}
+			console.log(eric.sal);
+		*/
+		/*禁止删除name属性:*/
+			Object.defineProperty(eric,"name",{
+				configurable:false
+			});
+			delete eric.name;
+			console.dir(eric);
+		</script>	
+	</body>
+</html>
