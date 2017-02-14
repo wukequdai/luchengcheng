@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+	<script type="text/javascript">
+		var emp1={id:1001,name:"Eric"};
+		+function(){
+		var _age;//受保护的变量-作用域链中
+		//维emp1添加访问器属性age
+		Object.defineProperty(emp1,"age",{
+			get(){//console.log("自动调用get")
+				return _age;},
+			set(val){//console.log("自动调用set")
+				//console.log("验证val"=val)
+				if(val>=18&&val<=65)
+					_age=val;
+					else
+						throw new Error("年龄必须介于18~~65之间");
+			},
+			enumerable:true,
+			confingurable:false
+		});
+		}();
+		console.log(emp1.age);
+		emp1.age=12;
+		console.log(emp1.age);
+	</script>
+</body>
+</html>
