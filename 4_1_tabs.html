@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的属性</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/4_1.css" />
+<style></style>
+
+</head>
+<body>
+	<h2>实现多标签页效果</h2>
+	<ul id="tab">
+		<li id="tab1">10元套餐</li>
+		<li id="tab2">30元套餐</li>
+		<li id="tab3">50元包月</li>
+	</ul>
+	<div id="container">
+		<div id="content1">
+			10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+		</div>
+		<div id="content2">
+			30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+		</div>
+		<div id="content3">
+			50元包月详情：<br />&nbsp;每月无限量随心打
+		</div>
+	</div>
+  <script>
+/*	+function(){
+		document.getElementById("content1")
+			.style.display="block";
+			var divs=document.querySelectorAll("#container>div");
+			var lis=document.querySelectorAll("#tab>li");
+			for(var i=0;i<lis.length;i++){
+				lis[i].onclick=toggle;
+			}
+			function toggle(){
+				for(var i=0;i<divs.length;i++){
+					divs[i].style.display="";
+				}
+				for(var i=0;i<lis.length;i++){
+					if(lis[i]==this) break;
+				}
+				divs[i].style.display="block";
+			}*/
+	+function(){
+			tab1.onclick=function(){
+				content1.style.display="block";
+				content2.style.display="none";
+				content3.style.display="none";
+			}
+			tab2.onclick=function(){
+				content2.style.display="block";
+				content1.style.display="none";
+				content3.style.display="none";
+			}
+			tab3.onclick=function(){
+				content3.style.display="block";
+				content1.style.display="none";
+				content2.style.display="none";
+			}
+	}();
+  </script>
+</body>
+</html>
