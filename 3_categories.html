@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>联动菜单</title>
+<meta charset="utf-8" />
+<script>
+	/*使用 HTML DOM 的方式实现联动菜单*/
+	var categories=[
+		{"id":10,"name":'男装',"children":[
+			{"id":101,"name":'正装'},
+			{"id":102,"name":'T恤'},
+			{"id":103,"name":'裤衩'}
+		]},
+		{"id":20,"name":'女装',"children":[
+			{"id":201,"name":'短裙'},
+			{"id":202,"name":'连衣裙'},
+			{"id":203,"name":'裤子',"children":[
+				{"id":2031,"name":'长裤'},
+				{"id":2031,"name":'九分裤'},
+				{"id":2031,"name":'七分裤'}
+			]},
+		]},
+		{"id":30,"name":'童装',"children":[
+			{"id":301,"name":'帽子'},
+			{"id":302,"name":'套装',"children":[
+				{"id":3021,"name":"0-3岁"},
+				{"id":3021,"name":"3-6岁"},
+				{"id":3021,"name":"6-9岁"},
+				{"id":3021,"name":"9-12岁"}
+			]},
+			{"id":303,"name":'手套'}
+		]}
+];
+	
+</script>
+</head>
+<body>
+	<div id="category">
+	</div>
+	<script>
+		+function(){
+			//查找id为category的div
+			var div=document.getElementById("category");
+			createSelect(categories);//创建第一个select
+			//专门根据一个数组创建每个select
+			function createSelect(arr){
+				//创建select
+				var sel=document.createElement("select");
+				//向select中添加一个新option,文字为-请选择-
+				sel.add(new Option("-请选择-"));
+				//遍历arr数组中每个分类
+				for(var i=0;i<arr.length;i++){
+					//向select中添加一个新option，文字为当前分类的name属性，值为当前分类的id属性
+					sel.add(new Option(
+						arr[i].name,arr[i].id
+					));
+				}
+				//为select绑定onchange事件
+				sel.onchange=function(){
+					//删除当前sel后的所有select
+					while(sel!=div.lastChild){
+						div.removeChild(div.lastChild)
+					}
+					//获得当前选中项的下标-1
+					var i=this.selectedIndex-1;
+					if(i>=0){//如果i>=0
+						//获得arr中i位置的对象的children
+						var children=arr[i].children;
+						//如果children不是undefined
+						if(children){
+							//再基于children创建下一个select
+							createSelect(children);
+						}
+					}
+				}
+				//将select追加到div中
+				div.appendChild(sel);
+			}
+		}();//15分钟练习，10分钟休息
+	</script>
+</body>
+</html>
