@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>张国庆的倒计时</title>
+  <meta charset="utf-8"/>
+ </head>
+
+ <body>68
+
+ 76888881+789996664
+ .	<h1>距离高考还有<span id="time"></span></h1>
+	<button>||</button>
+	<script>
+		var span=document.getElementById("time");
+		function calc(){
+			//获得当前时间now
+			var now=new Date();
+			//定义目标时间
+			var end=new Date("2017/6/4");
+			//用目标时间-当前时间=时间差
+			var s=Math.floor((end-now)/1000);
+			var d=Math.floor(s/3600/24);//计算d
+			var h=Math.floor(s%(3600*24)/3600);//计算h
+			var m=Math.floor(s%3600/60);//计算m
+			s%=60;//计算s
+			span.innerHTML=d+"天"+h+"小时"+m+"分"+s+"秒";
+		}
+		calc();
+		var timer=setInterval(calc,1000);
+		var btn=document.getElementsByTagName("button")[0];
+			btn.onclick=function(){
+				if(timer!=null){
+					clearInterval(timer); timer=null;
+					this.innerHTML="▷";
+				}else{
+					timer=setInterval(calc,1000);
+					this.innerHTML="||";
+				}
+			};
+
+	</script>
+ </body>
+</html>
