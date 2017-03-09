@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<title>Doctment</title>
+  <meta charset="UTF-8">
+	<style type="text/css">
+		form>input{
+			margin:3px 5px;
+		}
+	</style>
+</head>
+<body>
+	<form action="login_do.php" method="post" id="regForm">
+		用户登录：<input type="text" name="uname" id="uname"/><br>
+		用户密码：<input type="text" name="upwd" id="upwd"/><br>
+		<input type="button" value="登录" id="btn"/>
+	</form>
+	<script type="text/javascript">
+		/*btn.onclick=function(){
+			var url = "login_do.php?uname="+uname.value+"&upwd="+upwd.value;
+			var xhr=new XMLHttpRequest();
+			console.log(1);
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState===4 && xhr.status===200){
+							var mes=xhr.responseText;
+							console.log(2);
+						if(mes==="success"){
+							alert("登录成功");
+						}else{
+							alert("登录失败");
+						}
+					}
+				}
+				console.log(4);
+			 xhr.open('GET',url,true);
+			 xhr.send(null);
+		}*/
+		 btn.onclick = function(){
+		 //2:获取用户名和密码拼url
+		 var url = "login_do.php?uname="+uname.value;
+		 url += "&upwd="+upwd.value;
+		 //3:发送ajax请求
+		  //3.1: 创建xhr对象
+			var xhr = new XMLHttpRequest();
+			//3.2: 绑定事件
+			xhr.onreadystatechange = function(){
+				 if(xhr.readyState === 4 && xhr.status === 200){
+				   var mes = xhr.responseText;
+           if(mes==="success"){
+						 alert("登录成功");
+					 }else{
+					   alert("登录失败");
+					 }
+				 }
+			}
+			//3.3: 打开
+			xhr.open('GET',url,true);
+			//3.4: 发送
+			xhr.send(null);
+		 }
+	</script>
+</body>
+</html>
