@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            border: 1px solid #aaa;
+            width:200px;
+            min-height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    红色:<input type="range" id="red" min="0" max="255" step="5" value="0">
+    <span>0</span><br>
+    绿色<input type="range" id="green" min="0" max="255" step="5" value="0">
+    <span>0</span><br>
+    蓝色 <input type="range" id="blue" min="0" max="255" step="5" value="0">
+    <span>0</span><br>
+    <br/>
+    <script>
+        function changeBoxBg(){
+            var red=document.getElementById("red");
+            var green=document.getElementById("green");
+            var blue=document.getElementById("blue");
+            var r=red.value,g=green.value,b=blue.value;
+            var box=document.getElementById("box");
+            box.style.background='rgb('+r+','+g+','+b+')';
+
+
+        };
+        var list=document.querySelectorAll("input");
+        for(var i= 0;i<list.length;i++){
+            var range=list[i];
+            range.onchange=function(){
+                this.nextElementSibling.innerHTML=this.value;
+                changeBoxBg();
+            }
+        }
+    </script>
+</body>
+</html>
