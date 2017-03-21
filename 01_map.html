@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=5SXVwr3HgMOMXN2PDE2yrRptDFG8TXGS">
+    </script>
+    <style>
+        #container {
+            width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+<h3>欢迎访问新街口的地址</h3>
+<div id="container"></div>
+
+<script>
+    var map = new BMap.Map("container");          // 创建地图实例
+    var point = new BMap.Point(118.794699,32.052384);  // 创建点坐标
+    map.centerAndZoom(point, 17);
+
+    /*添加地图控件(Control)*/
+    //导航控件
+    map.addControl(new BMap.NavigationControl());
+    //预览图控件
+    map.addControl(new BMap.OverviewMapControl());
+    //比例尺控件
+    map.addControl(new BMap.ScaleControl());
+    //地图类型控件
+    map.addControl(new BMap.MapTypeControl());
+</script>
+</body>
+</html>>
