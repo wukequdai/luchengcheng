@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h3>拖动目标对象可以触发的事件</h3>
+    <img src="img/trash.png" id="trash"/><hr>
+    <img src="img/p3.png" id="p3" class="plane"/>
+    <img src="img/p4.png" id="p4" class="plane"/>
+    <img src="img/p5.png" id="p5" class="plane"/>
+    <script>
+        var planeToRemove=null;
+        var list=document.querySelectorAll(".plane");
+        for(var i=0;i<list.length;i++){
+            var p=list[i];
+            p.ondragstart = function(e){
+                planeToRemove = this; //记录被拖动的飞机对象
+            };
+            p.ondrag = function(e){};
+            p.ondragend = function(e){}
+
+        }
+        trash.ondragenter = function(){
+            trash.style.opacity="1"
+        };
+        trash.ondragover=function(e){
+            e.preventDefault();//兼容性问题
+        };
+        trash.ondragleave = function(){
+            trash.style.opacity=".3"
+        };
+        trash.ondrop= function(){
+            trash.style.opacity=".3";
+
+            planeToRemove.parentNode.removeChild(planeToRemove);
+        }
+    </script>
+</body>
+</html>
