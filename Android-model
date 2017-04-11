@@ -1,0 +1,24 @@
+public class MainActivity extends Activity {
+
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+      //Webview 显示html的Android原生组件
+        //创建一个wv的对象
+        WebView wv=new WebView(getApplicationContext());
+        //载入指定的页面
+        wv.loadUrl("http://176.3.12.32/web_app/day01/hybrid.html");
+        //将wv作为要显示在app中的视图组件
+        setContentView(wv);
+        wv.getSettings().setJavaScriptEnabled(true);
+        //想要看控制台，查看js的输出，需要设置；
+        wv.setWebChromeClient(new WebChromeClient(){
+        	//onCons加快捷键输出
+        	@Override
+        	public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        		// TODO Auto-generated method stub
+        		return super.onConsoleMessage(consoleMessage);
+        	}
+        });
+	 }
+   配置网络连接ANdroidManifest.xml 中permissions添加Uses permission中android.permission.INTERNET
