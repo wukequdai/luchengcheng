@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto_fx_detect_touch_gesture.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+  <ol id="list">
+    <li>Test01</li>
+    <li>Test02</li>
+    <li>Test03</li>
+    <li>Test04</li>
+    <li>Test05</li>
+  </ol>
+
+</div>
+
+<button id="btn">clickMe</button>
+
+<script>
+
+  $('#container').animate({
+    opacity:'0.5',
+    left:'250px',
+    height:'300px',
+    width:'200px'
+  });
+
+  var flag = false;
+  $('#btn').on('click',function(){
+    /*if(flag)
+    {
+      $('#list').fadeIn();
+    }
+    else
+    {
+      $('#list').fadeOut();
+    }
+    flag = !flag;*/
+    $('#list').fadeToggle();
+
+  })
+
+</script>
+
+</body>
+</html>
