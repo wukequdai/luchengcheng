@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/ionic.css"/>
+    <script src="js/ionic.bundle.js"></script>
+</head>
+<body>
+
+<ion-header-bar class="bar-positive">
+    <h1 class="title">header</h1>
+</ion-header-bar>
+
+<ion-content>
+    <ul>
+        <li>test01</li>
+        <li>test02</li>
+        <li>test03</li>
+    </ul>
+</ion-content>
+
+<ion-footer-bar class="bar-balanced">
+    <h1 class="title">footer</h1>
+</ion-footer-bar>
+
+<script>
+    var app=angular.module('myApp',['ionic'])
+</script>
+</body>
+</html>
